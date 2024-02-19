@@ -1,0 +1,40 @@
+server:
+  port: 8219
+
+spring:
+  application:
+    name: TestAdiData
+  profiles:
+    active: development
+
+  datasource:
+    hikari:
+      idle-timeout: 10000
+      max-lifetime: 30000
+      maximum-pool-size: 9
+      minimum-idle: 2
+    url: jdbc:mysql://localhost:3306/test_adi_data?useSSL=false&serverTimezone=Asia/Jakarta&useLegacyDatetimeCode=false&allowPublicKeyRetrieval=true
+    username: root
+    password: root1234
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+  main:
+    allow-circular-references: true
+
+
+message-code: '{
+    S001: "00|Success",
+    E001: "40|Invalid Request",
+    E002: "41|Internal Server Error",
+    E003: "42|Not Found",
+    E004: "43|Conflict"
+}'
+
+otpExpired: 60000
+
+threadPoolSize: 3
+
+
